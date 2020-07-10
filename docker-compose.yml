@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+    burp:
+        container_name: burp
+        build: burp/
+        ports:
+            - "8080:8080"
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - ./_data/:/home/tester/
+        env_file: ./burp.env
+        command: sh /home/tester/run.sh
